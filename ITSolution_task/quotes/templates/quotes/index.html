@@ -8,7 +8,19 @@
 <body>
     <div class="container">
         <h1>Случайная цитата</h1>
-
+        {% if quote %}
+            <div class="quote-block">
+                <p>{{ quote.text }}</p>
+                <div class="quote-source">Источник: {{ quote.source }}</div>
+                <div class="quote-actions">
+                    <span>Лайки: {{ quote.likes }} </span>
+                    <span>Дизлайки: {{ quote.dislikes }} </span>
+                    <span>Счётчик просмотров: {{ quote.views }} </span>
+                </div>
+            </div>
+        {% else %}
+            <p>Цитат пока нет.</p>
+        {% endif %}
 
 
     </div>
