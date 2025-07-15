@@ -22,6 +22,49 @@
             <p>Цитат пока нет.</p>
         {% endif %}
 
+        <hr>
+        <h2>Добавить новую цитату</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <p>
+                {{ form.text.label_tag }}
+                {{ form.text }}
+            </p>
+
+            <p>
+                {{ form.source.label_tag }}
+                {{ form.source }}
+                {% for error in form.source.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            <p>
+                {{ form.weight.label_tag }}
+                {{ form.weight }}
+                {% for error in form.weight.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </p>
+
+            {% if form.non_field_errors %}
+                <ul class="error-list">
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+             {% if form.text.errors %}
+                <ul class="error-list">
+                    {% for error in form.text.errors %}
+                        <li class="error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <button type="submit">Добавить</button>
+</form>
 
     </div>
 </body>
