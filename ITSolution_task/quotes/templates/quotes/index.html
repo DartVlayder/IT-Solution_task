@@ -74,7 +74,9 @@
 
             <button type="submit">Добавить</button>
 </form>
-
+    <div class="top-quotes">
+        <a href="{% url 'top_quotes' %}"> Топ-10 цитат</a>
+    </div>
     </div>
 </body>
 </html>
@@ -132,6 +134,10 @@
             font-size: 14px;
             color: #555;
             margin-top: 8px;
+        }
+        .top-quotes {
+            text-align: right;
+            margin-bottom: 20px;
         }
 
     </style>

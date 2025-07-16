@@ -41,3 +41,9 @@ def index(request):
         'quote': quote,
         'form': form,
     })
+
+def top_quotes(request):
+    top_quotes = Quote.objects.order_by('-likes', 'dislikes')[:10]
+    return render(request, 'quotes/top_quotes.html', {
+        'top_quotes': top_quotes
+    })

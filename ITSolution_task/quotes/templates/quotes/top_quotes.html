@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Топ-10 цитат</title>
+</head>
+<body>
+    <h1> Топ-10 цитат по лайкам</h1>
+
+    {% for quote in top_quotes %}
+        <div class="quote">
+            <p>“{{ quote.text }}”</p>
+            <div class="meta">
+                Источник: {{ quote.source }}<br>
+                Лайки {{ quote.likes }} | Дизлайки {{ quote.dislikes }} | Количество просмотров {{ quote.views }}
+            </div>
+        </div>
+    {% empty %}
+        <p>Цитат пока нет.</p>
+    {% endfor %}
+
+    <div class="back-link">
+        <a href="{% url 'index' %}">Вернуться на главную</a>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: sans-serif;
+        max-width: 700px;
+        margin: 40px auto;
+        background: #fefefe;
+    }
+
+    h1 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .quote {
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+    }
+
+    .quote p {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .meta {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+    }
+
+    .back-link {
+        display: block;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .back-link a {
+        text-decoration: none;
+        color: #007acc;
+    }
+
+    .back-link a:hover {
+        text-decoration: underline;
+    }
+</style>
